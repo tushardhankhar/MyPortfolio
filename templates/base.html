@@ -11,12 +11,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+    
     <ul class="nav nav-tabs justify-content-end"> 
         <li class="nav-item">
           <a class="nav-link active" href="{{ url_for('index') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('resume_pdf') }}">Resume</a>
+          <a class="nav-link" href="{{ url_for('test') }}">Resume</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Projects</a>
@@ -24,6 +25,21 @@
         <li class="nav-item">
           <a class="nav-link " href="#">Contact</a>
         </li>
+        <li>
+        <a class="navbar-brand" href="{{ url_for('github') }}">
+          <img src="static/download.png" width="30" height="30" alt="">
+        </a>
+        </li>
+        <li>
+          <a class="navbar-brand" href="{{ url_for('linkedin') }}">
+            <img src="static/linkedin.jpg" width="30" height="30" alt="">
+          </a>
+          </li>
+          <li>
+            <a class="navbar-brand" href="{{ url_for('twitter') }}">
+              <img src="static/twitter.png" width="30" height="30" alt="">
+            </a>
+            </li>
       </ul>
       {% block content %}
 
