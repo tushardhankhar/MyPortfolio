@@ -1,7 +1,10 @@
-from flask import Flask , render_template , send_file , redirect , url_for
+from flask import Flask , render_template , send_file , redirect , url_for , session
 import webbrowser
+from form import Info
 
 app = Flask(__name__,template_folder='templates')
+
+app.config['SECRET_KEY'] = 'ADAD'
 
 @app.route('/')
 def index():
@@ -31,6 +34,22 @@ def linkedin():
 def twitter():
     webbrowser.open_new_tab('https://twitter.com/dhankhar0075?s=08')
     return redirect(url_for("index"))
+
+@app.route('/contact',methods = ['GET','POST'])
+def contact():
+    mess = Info()
+    if mess.validate_on_submit():
+        session['name']=mess.name.data
+        session['email']=mess.email.data
+        session['message']=mess.message.data
+        return redirect(url_for('contact'))
+        
+    return render_template('contact.html',mess=mess)
+
+@app.route('/project')
+def project():
+    return render_template('project.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

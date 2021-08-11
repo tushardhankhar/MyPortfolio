@@ -1,0 +1,25 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<form class="jumbotron" method="POST">
+     
+    <h1>Get In Touch</h1>
+       
+    
+        {{ mess.hidden_tag()}}
+        <p class="text-center text-primary" >{{ mess.name.label }} </p>
+        <p class="text-center">{{ mess.name }}</p>
+        <p class="text-center text-primary">{{ mess.email.label }}  </p>
+        <p class="text-center">{{ mess.email }}</p>
+        <p class="text-center text-primary">{{ mess.message.label }} </p>
+        <p class="text-center">{{ mess.message }}</p>
+        <p class="text-center">{{ mess.submit() }} </p>
+
+    
+
+
+</form>
+
+
+{% endblock %}
