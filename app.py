@@ -1,4 +1,4 @@
-from flask import Flask , render_template , send_file , redirect , url_for , session
+from flask import Flask , render_template , send_file , redirect , url_for , session , flash
 import webbrowser
 from form import Info
 
@@ -39,6 +39,7 @@ def twitter():
 def contact():
     mess = Info()
     if mess.validate_on_submit():
+        flash('Message sent!!!!!!')
         session['name']=mess.name.data
         session['email']=mess.email.data
         session['message']=mess.message.data
